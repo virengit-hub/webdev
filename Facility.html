@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Ferris State E-Sports - Facility</title>
+	<link rel="stylesheet" href="styles.css">
+	<script>
+		function search() {
+			var input, filter, ul, li, a, i, txtValue;
+			input = document.getElementById("searchBar");
+			filter = input.value.toUpperCase();
+			ul = document.getElementById("navList");
+			li = ul.getElementsByTagName("li");
+			for (i = 0; i < li.length; i++) {
+				a = li[i].getElementsByTagName("a")[0];
+				txtValue = a.textContent || a.innerText;
+				if (txtValue.toUpperCase().indexOf(filter) > -1) {
+					li[i].style.display = "";
+				} else {
+					li[i].style.display = "none";
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<header>
+		<form>
+			<input type="text" id="searchBar" onkeyup="search()" placeholder="Search...">
+		</form>
+		<nav>
+			<ul id="navList">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="caster.html">Caster</a></li>
+				<li><a href="facility.html">Facility</a></li>
+				<li><a href="discord.html">Discord</a></li>
+				<li><a href="building.html">Upcoming Building</a></li>
+				<li>
+					<a href="#">Games &#9662;</a>
+					<ul>
+						<div><li><a href="codpage.html">Call of Duty</a></li></div>
+						<div><li><a href="CSGOPAGE.html">CS:GO</a></li></div>
+						<div><li><a href="LEAGUEOFLEGENDSPAGE.html">League of Legends</a></li></div>
+						<div><li><a href="OVERWATCH2PAGE.html">Overwatch</a></li></div>
+						<div><li><a href="ROCKETLEAGUEPAGE.HTML">Rocket League</a></li></div>
+						<div><li><a href="VALORANTPAGE.html">Valorant</a></li></div>
+						<div><li><a href="MOREGAMESPAGE.html">More Games</a></li></div>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<section>
+			<h1>Facility</h1>
+			<p>Our current facility is located in Bond Hall on the Ferris State University campus in Big Rapids, Michigan. The facility features:</p>
+			<ul>
+				<li>A practice area for the team to bond and improve their skills.</li>
+				<li>A dedicated room for our team to particpate in tournaments from!</li>
+			</ul>
+			<p>Our facility is open to all members of the Ferris State University community, as well as the general public. Come visit us today!</p>
+			<img src="brophyhall.jpg" height=300 width=677>
+		</section>
+	</main>
+</body>
+</html>
