@@ -1,85 +1,219 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script>
-		function search() {
-			var input, filter, ul, li, a, i, txtValue;
-			input = document.getElementById("searchBar");
-			filter = input.value.toUpperCase();
-			ul = document.getElementById("navList");
-			li = ul.getElementsByTagName("li");
-			for (i = 0; i < li.length; i++) {
-				a = li[i].getElementsByTagName("a")[0];
-				txtValue = a.textContent || a.innerText;
-				if (txtValue.toUpperCase().indexOf(filter) > -1) {
-					li[i].style.display = "";
-				} else {
-					li[i].style.display = "none";
-				}
-			}
-		}
-	</script>
-	<link rel="stylesheet" href="styles.css">
-	<title>Ferris State E-Sports Login</title>
-	<link rel="stylesheet" type="text/css" href="Login.css">
-	<script src="assets.js/login.js"></script>
+  <meta charset="UTF-8">
+  <title>Ferris State E-Sports Login</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #8ac4d4;
+      margin: 0;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    /* Navigation Bar Styles */
+    .navbar {
+      width: 100%;
+      background-color: #aad6f3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 0;
+    }
+    
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      margin: 0 5px;
+      border-radius: 5px;
+      background-color: #007bff;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    
+    .navbar a:hover {
+      background-color: #0056b3;
+    }
+    
+    /* Dropdown menu styling for Games tab */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #007bff;
+      min-width: 160px;
+      border-radius: 5px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    
+    .dropdown-content a {
+      color: #fff;
+      padding: 10px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    
+    .dropdown-content a:hover {
+      background-color: #0056b3;
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    /* Container and Header Styles */
+    .container {
+      margin: 20px auto;
+      padding: 20px;
+      background-color: rgba(235, 52, 52, 0.9);
+      box-shadow: 0px 0px 10px rgba(252, 186, 3, 0.7);
+      border-radius: 10px;
+      width: 350px;
+    }
+    
+    header h1 {
+      text-align: center;
+      margin-top: 0;
+      color: #fff;
+    }
+    
+    /* Login Form Styles */
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
+    }
+    
+    /* Input Group Styles for username/password */
+    .input-group {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 15px;
+      background-color: #fff;
+      border-radius: 20px;  /* Curved edges for the entire input group */
+      padding: 5px 10px;
+      box-sizing: border-box;
+    }
+    
+    .input-group img {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+    }
+    
+    .input-group input {
+      border: none;
+      outline: none;
+      flex: 1;
+      padding: 10px;
+      border-radius: 20px; /* Matching the curved look */
+      font-size: 14px;
+    }
+    
+    /* Options styling -> Forgot password and Create account */
+    .options {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+    
+    .options a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    
+    .options a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Login Button Styling */
+    .login-btn {
+      background-color: #aad6f3;
+      border: none;
+      color: #fff;
+      padding: 12px 0;
+      border-radius: 20px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    
+    .login-btn:hover {
+      background-color: #007bff;
+    }
+  </style>
 </head>
 <body>
+  <!-- Navigation Bar -->
+  <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="caster.html">Caster</a>
+    <a href="facility.html">Facility</a>
+    <a href="discord.html">Discord</a>
+    <a href="building.html">Upcoming Building</a>
+    <a href="sponsorship%20and%20advertising.html">Sponsorships</a>
+    <a href="playerprofile.html">Player Profile</a>
+    <a href="login.html" style="background-color:#0056b3;">Login</a>
+    <a href="forum.html">Forums</a>
+    <a href="policy%20page.html">Policy</a>
+    <a href="registration.html">Registration</a>
+    <a href="contact%20page.html">Contact Us</a>
+    <a href="about.html">About Us</a>
+    <div class="dropdown">
+      <a href="#">Games &#9662;</a>
+      <div class="dropdown-content">
+        <a href="codpage.html">Call of Duty</a>
+        <a href="CSGOPAGE.html">CS:GO</a>
+        <a href="LEAGUEOFLEGENDSPAGE.html">League of Legends</a>
+        <a href="OVERWATCH2PAGE.html">Overwatch</a>
+        <a href="ROCKETLEAGUEPAGE.HTML">Rocket League</a>
+        <a href="VALORANTPAGE.html">Valorant</a>
+        <a href="MOREGAMESPAGE.html">More Games</a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Login Form Container -->
+  <div class="container">
     <header>
-	<h1>Ferris State E-Sports</h1>
-	<div class="container">
-		<form>
-           		<nav>
-			<ul id="navList">
-				<li><a href="index.html">Home</a></li>
-				<li><a href="caster.html">Caster</a></li>
-				<li><a href="facility.html">Facility</a></li>
-				<li><a href="discord.html">Discord</a></li>
-				<li><a href="building.html">Upcoming Building</a></li>
-                <li><a href="sponsorship%20and%20advertising.html">Sponsorships and Advertising</a></li>
-                <li><a href="playerprofile.html">Player Profile</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="forum.html">Forums</a></li>
-                <li><a href="policy%20page.html">Policy</a></li>
-                <li><a href="registration.html">Registration</a></li>
-                <li><a href="contact%20page.html">Contact Us</a></li>
-                <li><a href="main.html">About Us</a></li>
-					<a href="#">Games &#9662;</a>
-                <li>
-					<ul>
-						<div><li><a href="codpage.html">Call of Duty</a></li></div>
-						<div><li><a href="CSGOPAGE.html">CS:GO</a></li></div>
-						<div><li><a href="LEAGUEOFLEGENDSPAGE.html">League of Legends</a></li></div>
-						<div><li><a href="OVERWATCH2PAGE.html">Overwatch</a></li></div>
-						<div><li><a href="ROCKETLEAGUEPAGE.HTML">Rocket League</a></li></div>
-						<div><li><a href="VALORANTPAGE.html">Valorant</a></li></div>
-						<div><li><a href="MOREGAMESPAGE.html">More Games</a></li></div>
-					</ul>
-				</li>
-			</ul>
-		</nav>
+      <h1>Ferris State E-Sports</h1>
     </header>
-			<label for="username">Username:</label><br>
-			<input type="text" id="username" name="username"><br>
-			<label for="password">Password:</label><br>
-			<input type="password" id="password" name="password"><br><br>
-			<input type="submit" value="Login">
-			<div class="links">
-				<a href="#">Forgot password?</a>
-				<a href="#">Create an account</a>
-			</div>
-		</form>
-	</div>
-	<div class="input-group">
-    		<img src="user-icon.png" alt="User Icon">
-    		<input type="text" id="username" name="username" placeholder="Login ID">
-	</div>
-
-	<div class="input-group">
-    		<img src="password-icon.png" alt="Password Icon">
-    		<input type="password" id="password" name="password" placeholder="Password">
-	</div>
-
+    <form class="login-form">
+      <!-- Username Field with Logo -->
+      <div class="input-group">
+        <img src="user-icon.png" alt="User Icon">
+        <input type="text" id="username" name="username" placeholder="Login ID">
+      </div>
+      <!-- Password Field with Logo -->
+      <div class="input-group">
+        <img src="password-icon.png" alt="Password Icon">
+        <input type="password" id="password" name="password" placeholder="Password">
+      </div>
+      <!-- Forgot Password and Create Account Options -->
+      <div class="options">
+        <a href="#">Forgot password?</a> / <a href="#">Create an account</a>
+      </div>
+      <!-- Login Button -->
+      <input type="submit" value="Login" class="login-btn">
+    </form>
+  </div>
 </body>
 </html>
+
 
